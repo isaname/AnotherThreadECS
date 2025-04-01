@@ -47,9 +47,10 @@ public class DestroyableSsytem : JobComponentSystem
         public void Execute(int i)
         {
             Destroyable d = destroyable_list_[i];
+            var myEntity = entity_list_[i];
             if (d.killed_ != 0) {
-                if (destroyable_list_from_entity_.Exists(entity_list_[i])) {
-                    command_buffer_.DestroyEntity(i /* job_index */, entity_list_[i]);
+                if (destroyable_list_from_entity_.Exists(myEntity)) {
+                    command_buffer_.DestroyEntity(i /* job_index */, myEntity);
                 }
             }
         }
